@@ -1,5 +1,22 @@
 # Sequence to Sequence(Seq2Seq)
 
+   * [Sequence to Sequence(Seq2Seq)](#sequence-to-sequenceseq2seq)
+      * [简介](#简介)
+      * [数据集](#数据集)
+      * [环境依赖](#环境依赖)
+      * [快速开始](#快速开始)
+      * [代码结构与详细说明](#代码结构与详细说明)
+         * [代码结构](#代码结构)
+         * [参数说明](#参数说明)
+         * [训练流程](#训练流程)
+            * [使用XPU/GPU/CPU 进行训练](#使用xpugpucpu-进行训练)
+            * [训练输出](#训练输出)
+         * [评估流程](#评估流程)
+            * [使用XPU/GPU/CPU 进行评估](#使用xpugpucpu-进行评估)
+         * [测试流程](#测试流程)
+            * [使用XPU/GPU/CPU 进行测试](#使用xpugpucpu-进行测试)
+      * [模型信息](#模型信息)
+
 ## 简介
 
 Sequence to Sequence (Seq2Seq)，使用编码器-解码器（Encoder-Decoder）结构，用编码器将源序列编码成vector，再用解码器将该vector解码为目标序列。Seq2Seq 广泛应用于机器翻译，自动对话机器人，文档摘要自动生成，图片描述自动生成等任务中。具体可以参考论文：[Sequence to Sequence Learning with Neural Networks](https://arxiv.org/abs/1409.3215)
