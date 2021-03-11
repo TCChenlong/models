@@ -152,3 +152,5 @@ python train.py --pretrained_model ./pretrained_model/resnet_model
 | TOP-1 Error |  22.44  |
 | TOP-5 Error |  6.21   |
 | 下载链接 | [预训练模型]() \| [训练日志]() \| [vdl]() |
+| benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
+| 混合精度训练 | [resnet(amp)]() |

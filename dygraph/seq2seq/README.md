@@ -158,3 +158,4 @@ bash infer.sh
 | BLEU |  10.94  |
 | BLEU(with Attention) |  25.24   |
 | 下载链接 | [预训练模型]() \| [训练日志]() \| [vdl]() |
+| benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/seq2seq) |
