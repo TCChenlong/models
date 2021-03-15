@@ -223,5 +223,9 @@ the image is buttercup！
 | 下载链接 | [预训练模型]() \| [训练日志]() \| [vdl]() |
 | benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
 | 混合精度训练 | [resnet(amp)]() |
-| 模型文件 | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
-| AI Studio项目 | [使用ResNet50实现图像分类]() | 
+| 模型源代码 | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
+| 在线运行 | [使用ResNet50实现图像分类]() | 
+
+## 七、二次开发
+
+如果想要基于此模型进行二次开发，可以参考这篇文档[使用模型库中的模型进行二次开发]()。
