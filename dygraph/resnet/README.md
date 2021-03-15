@@ -1,26 +1,5 @@
 # ResNet
 
-   * [ResNet](#resnet)
-      * [一、简介](#一简介)
-      * [二、数据集](#二数据集)
-      * [三、环境依赖](#三环境依赖)
-      * [四、快速开始](#四快速开始)
-         * [step1: clone](#step1-clone)
-         * [step2: 训练](#step2-训练)
-         * [step3: 测试](#step3-测试)
-         * [使用预训练模型预测](#使用预训练模型预测)
-      * [五、代码结构与详细说明](#五代码结构与详细说明)
-         * [5.1 代码结构](#51-代码结构)
-         * [5.2 参数说明](#52-参数说明)
-         * [5.3 训练流程](#53-训练流程)
-            * [单机训练](#单机训练)
-            * [多机训练](#多机训练)
-            * [训练输出](#训练输出)
-         * [5.4 评估流程](#54-评估流程)
-         * [5.5 测试流程](#55-测试流程)
-         * [5.6 使用预训练模型预测](#56-使用预训练模型预测)
-      * [六、模型信息](#六模型信息)
-
 ## 一、简介
 
 ![Image text](./images/resnet.png)
@@ -60,16 +39,33 @@ cd models/dygraph/resnet
 python train.py
 ```
 
+此时的输出为：
+```
+epoch 0 | batch step 0, loss 4.801 acc1 0.000 acc5 0.031, batch cost: 0.20029
+epoch 0 | batch step 10, loss 12.695 acc1 0.017 acc5 0.102, batch cost: 0.07268
+epoch 0 | batch step 20, loss 9.905 acc1 0.015 acc5 0.089, batch cost: 0.07277
+```
+由于是分类任务，需要关注 ``loss`` 逐渐降低，``acc1、acc5`` (TOP1准确率，TOP5准确率)逐渐升高。
+
 ### step3: 测试
 ```bash
 # 测试
-python train.py --mode test
+python train.py --mode test --test_image test_image.jpg
+```
+此时的输出为：
+```
+the image is buttercup！
 ```
 
 ### 使用预训练模型预测
 ```bash
 # 使用预训练模型预测
-python train.py --pretrained_model ./pretrained_model/resnet_model
+python train.py --pretrained_model ./pretrained_model/resnet_model --test_image test_image.jpg
+```
+
+此时的输出为：
+```
+the image is buttercup！
 ```
 
 ## 五、代码结构与详细说明
@@ -87,11 +83,29 @@ python train.py --pretrained_model ./pretrained_model/resnet_model
 
 可以在 `train.py` 中设置训练与评估相关参数，具体如下：
 
-``` text
-"use_data_parallel": False,          # 是否使用数据并行训练模型
-"e": 120,                            #训练epoch次数
-"b": 32,                             #训练 batch_size 大小
-```
+|  参数   | 默认值  | 说明 | 其他 |
+|  ----  |  ----  |  ----  |  ----  |
+| use_data_parallel  | False, 可选 | 是否使用数据并行训练模型 |
+| epoch  | 120, 可选 | 训练epoch次数 |
+| batch_size  | 32, 可选 | 训练 batch_size 大小 |
+| max_iter | 0, 可选 | 训练最大迭代次数 | 仅在benchmark时使用 |
+| class_dim | 102, 可选 | 花朵数据集的类别数 |
+| use_imagenet_data | False(如果添加该参数即为True), 可选 | 是否使用 IMAGENET数据集 |
+| data_dir | "./data/ILSVRC2012", 可选 | IMAGENET数据集地址 |
+| lower_scale | 0.08, 可选 | ramdom_crop 中 lower_scale 的值 |
+| lower_ratio | 3. / 4., 可选 | ramdom_crop 中 lower_ratio 的值 |
+| upper_ratio | 4. / 3., 可选 | ramdom_crop 中 upper_ratio 的值 |
+| resize_short_size | 256, 可选 | 将图片重新设置大小后较短边的边长 |
+| crop_size | 224, 可选 | crop size 的大小 |
+| use_mixup | False, 可选 | 是否使用mixup |
+| mixup_alpha | 0.2, 可选 | mixup_alpha 大小 |
+| reader_thread | 8, 可选 | 多线程读取数据的数量 |
+| reader_buf_size | 16, 可选 | 多线程读取数据的缓冲大小 |
+| interpolation | None, 可选 | 插值模式 |
+| use_aa | False, 可选 | 是否使用 auto argument |
+| image_mean | [0.485, 0.456, 0.406], 可选 | 图像均值 |
+| image_std | [0.229, 0.224, 0.225], 可选 | 图像方差 |
+| use_gpu | True, 可选 | 是否使用GPU环境 |
 
 ### 5.3 训练流程
 
