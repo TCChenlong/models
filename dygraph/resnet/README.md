@@ -26,6 +26,7 @@
 ![Image text](./images/resnet.png)
 
 Resnet(Residual Neural Network) 由微软研究院的Kaiming He等四名华人提出，通过使用ResNet Unit成功训练出了152层的神经网络，并在ILSVRC2015比赛中取得冠军，在top5上的错误率为3.57%，同时参数量比VGGNet低，效果非常突出。
+
 **论文:**[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 
 ## 二、数据集
