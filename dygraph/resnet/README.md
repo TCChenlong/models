@@ -1,5 +1,26 @@
 # ResNet
 
+   * [ResNet](#resnet)
+      * [一、简介](#一简介)
+      * [二、数据集](#二数据集)
+      * [三、环境依赖](#三环境依赖)
+      * [四、快速开始](#四快速开始)
+         * [step1: clone](#step1-clone)
+         * [step2: 训练](#step2-训练)
+         * [step3: 测试](#step3-测试)
+         * [使用预训练模型预测](#使用预训练模型预测)
+      * [五、代码结构与详细说明](#五代码结构与详细说明)
+         * [5.1 代码结构](#51-代码结构)
+         * [5.2 参数说明](#52-参数说明)
+         * [5.3 训练流程](#53-训练流程)
+            * [单机训练](#单机训练)
+            * [多机训练](#多机训练)
+            * [训练输出](#训练输出)
+         * [5.4 评估流程](#54-评估流程)
+         * [5.5 测试流程](#55-测试流程)
+         * [5.6 使用预训练模型预测](#56-使用预训练模型预测)
+      * [六、模型信息](#六模型信息)
+
 ## 一、简介
 
 ![Image text](./images/resnet.png)
@@ -146,10 +167,22 @@ epoch id: 0, batch step: 2, loss: 5.123999
 python train.py --mode eval
 ```
 
+此时的输出为：
+```
+batch step 0, loss 4.801 acc1 0.000 acc5 0.031, batch cost: 0.20029
+batch step 10, loss 12.695 acc1 0.017 acc5 0.102, batch cost: 0.07268
+batch step 20, loss 9.905 acc1 0.015 acc5 0.089, batch cost: 0.07277
+```
+
 ### 5.5 测试流程
 
 ```bash
-python train.py --mode test
+python train.py --mode test --test_image test_image.jpg
+```
+
+此时的输出为：
+```
+the image is buttercup！
 ```
 
 ### 5.6 使用预训练模型预测
@@ -166,7 +199,11 @@ wget https://bj.bcebos.com/paddleseg/dygraph/cityscapes/bisenet_cityscapes_1024x
 
 **step2:** 使用预训练模型完成预测
 ```bash
-python train.py --pretrained_model ./pretrained_model/resnet_model
+python train.py --pretrained_model ./pretrained_model/resnet_model --test_image test_image.jpg
+```
+此时的输出为：
+```
+the image is buttercup！
 ```
 ## 六、模型信息
 
