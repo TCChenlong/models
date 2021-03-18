@@ -1,150 +1,152 @@
 # ResNet
-   
-   * [ResNet](#resnet)
-      * [一、简介](#一简介)
-      * [二、数据集](#二数据集)
-      * [三、环境依赖](#三环境依赖)
-      * [四、快速开始](#四快速开始)
-         * [step1: clone](#step1-clone)
-         * [step2: 训练](#step2-训练)
-         * [step3: 测试](#step3-测试)
-         * [使用预训练模型预测](#使用预训练模型预测)
-      * [五、代码结构与详细说明](#五代码结构与详细说明)
-         * [5.1 代码结构](#51-代码结构)
-         * [5.2 参数说明](#52-参数说明)
-         * [5.3 训练流程](#53-训练流程)
-            * [单机训练](#单机训练)
-            * [多机训练](#多机训练)
-            * [训练输出](#训练输出)
-         * [5.4 评估流程](#54-评估流程)
-         * [5.5 测试流程](#55-测试流程)
-         * [5.6 使用预训练模型预测](#56-使用预训练模型预测)
-      * [六、模型信息](#六模型信息)
-      * [七、二次开发](#七二次开发)
 
-## 一、简介
+English | [简体中文](./README_cn.md)
+   
+  * [ResNet](#resnet)
+      * [1 Introduction](#1-introduction)
+      * [2 Dataset](#2-dataset)
+      * [3 Environment](#3-environment)
+      * [4 Quick Start](#4-quick-start)
+         * [Step1: Clone](#step1-clone)
+         * [Step2: Training](#step2-training)
+         * [Step3: Test](#step3-test)
+         * [Use Pre-trained Models to Infer](#use-pre-trained-models-to-infer)
+      * [5 Code Structure and Explanation](#5-code-structure-and-explanation)
+         * [5.1 Code Structure](#51-code-structure)
+         * [5.2 Parameter Explanation](#52-parameter-explanation)
+         * [5.3 Training Process](#53-training-process)
+            * [One GPU Training](#one-gpu-training)
+            * [Multiple GPUs Training](#multiple-gpus-training)
+            * [Outputs](#outputs)
+         * [5.4 Evaluation Process](#54-evaluation-process)
+         * [5.5 Test Process](#55-test-process)
+         * [5.6 Use Pre-trained Models to Infer](#56-use-pre-trained-models-to-infer)
+      * [6 Model Information](#6-model-information)
+      * [7 Customization](#7-customization)
+
+## 1 Introduction
 
 ![Image text](./images/resnet.png)
 
-Resnet(Residual Neural Network) 由微软研究院的Kaiming He等四名华人提出，通过使用ResNet Unit成功训练出了152层的神经网络，并在ILSVRC2015比赛中取得冠军，在top5上的错误率为3.57%，同时参数量比VGGNet低，效果非常突出。
+ResNet (Residual Neural Network) was come up with by four Chinese people from Microsoft Research, including Kaiming He. They evaluated residual nets with a depth of up to 152 layers through ResNet Unit, and carried out the first prize in ILSVRC2015. On the ImageNet test set, their ensemble had 3.57% top-5 error, and had lower complexity than VGGNet. This model is highly efficient. 
 
-**论文:**[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+**Paper:** [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385).
 
-## 二、数据集
+## 2 Dataset
 
-使用的数据集为：[Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/)。
+The dataset is [Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/).
 
-- 数据集大小：102个类别，8189张32*32大小的图像
-  - 训练集：1020个图像
-  - 验证集：1020个图像
-  - 测试集：6149个图像
-- 数据格式：使用飞桨框架内置Flowers数据集，默认格式为numpy.array，更多信息请参考[paddle.vision.datasets.Flowers](https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/vision/datasets/flowers/Flowers_cn.html)
+- The size of dataset: There are 102 categories, and 8189 images are of 32*32 pixels in width and height
+  - Training set: 1020 images
+  - Validation set: 1020 images
+  - Test set: 6149 images
+- The format of data: When you apply the PaddlePaddle’s API [Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/), the default format is ``numpy.array``. For more details, please refer to [paddle.vision.datasets.Flowers](https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/vision/datasets/flowers/Flowers_cn.html).
 
-## 三、环境依赖
+## 3 Environment
 
-- 硬件：XPU、GPU、CPU
-
-- 框架：
+- Hardwares: XPU, GPU, CPU
+- Framework: 
   - PaddlePaddle >= 2.0.0
 
-## 四、快速开始
+## 4 Quick Start
 
-### step1: clone 
+### Step1: Clone 
 
 ``` bash
-# clone this repo
+# Clone this repo
 git clone https://github.com/PaddlePaddle/models
 cd models/dygraph/resnet
 ```
 
-### step2: 训练
+### Step2: Training
 ``` bash
-# 训练
+# Training
 python train.py
 ```
 
-此时的输出为：
+The output is: 
 ```
 epoch 0 | batch step 0, loss 4.801 acc1 0.000 acc5 0.031, batch cost: 0.20029
 epoch 0 | batch step 10, loss 12.695 acc1 0.017 acc5 0.102, batch cost: 0.07268
 epoch 0 | batch step 20, loss 9.905 acc1 0.015 acc5 0.089, batch cost: 0.07277
 ```
-由于是分类任务，需要关注 ``loss`` 逐渐降低，``acc1、acc5`` (TOP1准确率，TOP5准确率)逐渐升高。
+This is the classification task. You need to notice that `` loss``  value will gradually decreases, and ``acc1`` (top-1 accuracy) and `` acc5``  (top-5 accuracy) will increase.
 
-### step3: 测试
+### Step3: Test
 ```bash
-# 测试
+# Test
 python train.py --mode test --test_image test_image.jpg
 ```
-此时的输出为：
+The output is: 
 ```
 the image is buttercup！
 ```
 
-### 使用预训练模型预测
+### Use Pre-trained Models to Infer
 ```bash
-# 使用预训练模型预测
+# Use Pre-trained Models to Infer
 python train.py --pretrained_model ./pretrained_model/resnet_model --test_image test_image.jpg
 ```
 
-此时的输出为：
+The output is:
 ```
 the image is buttercup！
 ```
 
-## 五、代码结构与详细说明
+## 5 Code Structure and Explanation
 
-### 5.1 代码结构
+### 5.1 Code Structure
 
 ```
 |—— README.md
 |—— README_en.md
-|—— reader.py    # 数据加载
-|── run.sh       # 训练、测试脚本
-|── train.py     # 训练、测试网络
+|—— reader.py    # Data loading
+|── run.sh       # Training and test scripts
+|── train.py     # Training and test nets
 ```
 
-### 5.2 参数说明
+### 5.2 Parameter Explanation
 
-可以在 `train.py` 中设置训练与评估相关参数，具体如下：
+You can set training and evaluation parameters in `train.py`. And relative information is as following:
 
-|  参数   | 默认值  | 说明 | 其他 |
+|  Parameter Name  | Default Value | Description | Others |
 |  ----  |  ----  |  ----  |  ----  |
-| use_data_parallel  | False, 可选 | 是否使用数据并行训练模型 ||
-| epoch  | 120, 可选 | epoch次数 ||
-| batch_size  | 32, 可选 | batch_size 大小 ||
-| max_iter | 0, 可选 | 最大迭代次数 | 仅在benchmark时使用 |
-| class_dim | 102, 可选 | 花朵数据集的类别数 ||
-| use_imagenet_data | False(如果添加该参数即为True), 可选 | 是否使用 IMAGENET数据集 ||
-| data_dir | "./data/ILSVRC2012", 可选 | IMAGENET数据集地址 ||
-| lower_scale | 0.08, 可选 | ramdom_crop 中 lower_scale 的值 ||
-| lower_ratio | 3. / 4., 可选 | ramdom_crop 中 lower_ratio 的值 ||
-| upper_ratio | 4. / 3., 可选 | ramdom_crop 中 upper_ratio 的值 ||
-| resize_short_size | 256, 可选 | 将图片重新设置大小后较短边的边长 ||
-| crop_size | 224, 可选 | crop_size 的大小 ||
-| use_mixup | False, 可选 | 是否使用mixup ||
-| mixup_alpha | 0.2, 可选 | mixup_alpha 大小 ||
-| reader_thread | 8, 可选 | 多线程读取数据的数量 ||
-| reader_buf_size | 16, 可选 | 多线程读取数据的缓冲大小 ||
-| interpolation | None, 可选 | 插值模式 ||
-| use_aa | False, 可选 | 是否使用 auto argument ||
-| image_mean | [0.485, 0.456, 0.406], 可选 | 图像均值 ||
-| image_std | [0.229, 0.224, 0.225], 可选 | 图像标准差 ||
-| use_gpu | True, 可选 | 是否使用GPU环境 ||
+| use_data_parallel  | False, optional | Whether data is used to train models in a parallel manner or not ||
+| epoch  | 120, optional | The number of epoch ||
+| batch_size  | 32, optional | The value of `batch_size` ||
+| max_iter | 0, optional | The maximum number of iteration | `max_iter` is only applied when benchmark is used |
+| class_dim | 102, optional | The number of [Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/)’ categories ||
+| use_imagenet_data | False(the action set to store_true will store the argument as True, if present), optional | Whether IMAGENET is used or not ||
+| data_dir | "./data/ILSVRC2012", optional | The address of IMAGENET ||
+| lower_scale | 0.08, optional | The value of `lower_scale` in `ramdow_crop` ||
+| lower_ratio | 3. / 4., optional | The value of `lower_ratio` in `ramdom_crop` ||
+| upper_ratio | 4. / 3., optional | The value of `upper_ratio` in `ramdom_crop` ||
+| resize_short_size | 256, optional | The shorter side’s length of a resized photo ||
+| crop_size | 224, optional | The value of `crop_size` ||
+| use_mixup | False, optional | Whether mixup is used or not ||
+| mixup_alpha | 0.2, optional | The value of `mixup_alpha` ||
+| reader_thread | 8, optional | The data size read by threading ||
+| reader_buf_size | 16, optional | The buffer size read by threading ||
+| interpolation | None, optional | Interpolation mode ||
+| use_aa | False, optional | Whether auto argument is used or not ||
+| image_mean | [0.485, 0.456, 0.406], optional | Image mean ||
+| image_std | [0.229, 0.224, 0.225], optional | Image standard deviation ||
+| use_gpu | True, optional | Whether GPU is used or not ||
 
-### 5.3 训练流程
+### 5.3 Training Process
 
-#### 单机训练
+#### One GPU Training
 ```bash
 python train.py
 ```
 
-#### 多机训练
+#### Multiple GPUs Training
 ```bash
 python -m paddle.distributed.launch --selected_gpus=0,1,2,3  --log_dir ./mylog train.py   --use_data_parallel 1
 ```
 
-此时，程序会将每个进程的输出log导入到`./mylog`路径下：
+Now, the program will import output logs of each procedure into `./mylog`.
+
 ```
 .
 ├── mylog
@@ -156,44 +158,45 @@ python -m paddle.distributed.launch --selected_gpus=0,1,2,3  --log_dir ./mylog t
 └── train.py
 ```
 
-#### 训练输出
-执行训练开始后，将得到类似如下的输出。每一轮`batch`训练将会打印当前epoch、step以及loss值。当前默认执行`epoch=10`, `batch_size=8`。你可以调整参数以得到更好的训练效果，同时也意味着消耗更多的内存（显存）以及需要花费更长的时间。
+#### Outputs
+When the training starts, the output will be as following. Each `batch` of training will print values of current epoch, step and loss. The default execution is `epoch=10`, `batch_size=8`. Of course, you can tune parameters to reach better training results. But this also means more memories and time.
+
 ```text
 epoch id: 0, batch step: 0, loss: 4.951202
 epoch id: 0, batch step: 1, loss: 5.268410
 epoch id: 0, batch step: 2, loss: 5.123999
 ```
-**注意：** 全部的训练日志请参考下表中的[日志]()。
+Note: Please refer to [log]() in the following list to check all training logs.
 
-### 5.4 评估流程
+### 5.4 Evaluation Process
 
 ```bash
 python train.py --mode eval
 ```
 
-此时的输出为：
+The output is:
 ```
 batch step 0, loss 4.801 acc1 0.000 acc5 0.031, batch cost: 0.20029
 batch step 10, loss 12.695 acc1 0.017 acc5 0.102, batch cost: 0.07268
 batch step 20, loss 9.905 acc1 0.015 acc5 0.089, batch cost: 0.07277
 ```
 
-### 5.5 测试流程
+### 5.5 Test Process
 
 ```bash
 python train.py --mode test --test_image test_image.jpg
 ```
 
-此时的输出为：
+The output is: 
 ```
 the image is buttercup！
 ```
 
-### 5.6 使用预训练模型预测
+### 5.6 Use Pre-trained Models to Infer
 
-使用预训练模型预测的流程如下：
+The procedure of using pre-trained models to infer is as following: 
 
-**step1:** 下载预训练模型
+**Step1:** Download the pre-trained models
 
 ```bash
 mkdir pretrained_model
@@ -201,33 +204,34 @@ cd pretrained_model
 wget https://bj.bcebos.com/paddleseg/dygraph/cityscapes/bisenet_cityscapes_1024x1024_160k/model.pdparams
 ```
 
-**step2:** 使用预训练模型完成预测
+**Step2:** Use pre-trained models to infer
+
 ```bash
 python train.py --pretrained_model ./pretrained_model/resnet_model --test_image test_image.jpg
 ```
-此时的输出为：
+The output is:
 ```
 the image is buttercup！
 ```
-## 六、模型信息
+## 6 Model Information
 
-关于模型的其他信息，可以参考下表：
+Please refer to the following list to check other models’ information:
 
-| 信息 | 说明 |
-| --- | --- |
-| 发布者 | PaddlePaddle |
-| 时间 | 2021.03 |
-| 框架版本 | Paddle 2.0.1 |
-| 应用场景 | 图像分类 |
-| 支持硬件 | XPU、GPU、CPU |
+| Information Name | Description |
+| :-- | --- |
+| Announcer | PaddlePaddle |
+| Time | 2021.03 |
+| Framework Version | Paddle 2.0.1 |
+| Application Scenario | Image Classification |
+| Supported Hardwares | XPU, GPU, CPU |
 | TOP-1 Error |  22.44  |
 | TOP-5 Error |  6.21   |
-| 下载链接 | [预训练模型]() \| [训练日志]() \| [vdl]() |
-| benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
-| 混合精度训练 | [resnet(amp)]() |
-| 模型源代码 | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
-| 在线运行 | [使用ResNet50实现图像分类]() |
+| Download Links | [Pre-trained Models]() \| [Training Log]() \| [vdl]() |
+| Benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
+| Mixed-precision Training | [resnet(amp)]() |
+| Source Code of ResNet | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
+| Online Running | [Use ResNet50 to Realize Image Classification]() |
 
-## 七、二次开发
+## 7 Customization
 
-如果想要基于此模型进行二次开发，可以参考这篇文档: [使用模型库中的模型进行二次开发]()。
+Please refer to [the passage](#) to customize the models.

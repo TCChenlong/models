@@ -1,61 +1,64 @@
 # ResNet
 
-   * [ResNet](#resnet)
-      * [一、简介](#一简介)
-      * [二、数据集](#二数据集)
-      * [三、环境依赖](#三环境依赖)
-      * [四、快速开始](#四快速开始)
-      * [五、模型信息](#五模型信息)
-      * [六、二次开发](#六二次开发)
+English | [简体中文](./README_cn.md)
 
-## 一、简介
+   * [ResNet](#resnet)
+      * [1 Introduction](#1-introduction)
+      * [2 Dataset](#2-dataset)
+      * [3 Environment](#3-environment)
+      * [4 Quick Start](#4-quick-start)
+      * [5 Model Information](#5-model-information)
+      * [6 Customization](#6-customization)
+
+## 1 Introduction
 
 ![Image text](./images/resnet.png)
 
-Resnet(Residual Neural Network) 由微软研究院的Kaiming He等四名华人提出，通过使用ResNet Unit成功训练出了152层的神经网络，并在ILSVRC2015比赛中取得冠军，在top5上的错误率为3.57%，同时参数量比VGGNet低，效果非常突出。
+ResNet (Residual Neural Network) was come up with by four Chinese people from Microsoft Research, including Kaiming He. They evaluated residual nets with a depth of up to 152 layers through ResNet Unit, and carried out the first prize in ILSVRC2015. On the ImageNet test set, their ensemble had 3.57% top-5 error, and had lower complexity than VGGNet. This model is highly efficient. 
 
-**论文:** [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+The  reference is [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385).
 
-## 二、数据集
+## 2 Dataset
 
-使用的数据集为：[Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/)。
+The dataset is: [Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/).
 
-- 数据集大小：102个类别，8189张32*32大小的图像
-  - 训练集：1020个图像
-  - 验证集：1020个图像
-  - 测试集：6149个图像
-- 数据格式：使用飞桨框架内置Flowers数据集，默认格式为numpy.array，更多信息请参考[paddle.vision.datasets.Flowers](https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/vision/datasets/flowers/Flowers_cn.html)
+- The size of dataset: There are 102 categories, and 8189 images are of 32*32 pixels in width and height
+  - Training set: 1020 images
+  - Validation set: 1020 images
+  - Test set: 6149 images
+- The format of data: When you apply the PaddlePaddle’s built-in dataset—[Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/), the default format is ``numpy.array``. For more details, please refer to [paddle.vision.datasets.Flowers](https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/vision/datasets/flowers/Flowers_cn.html).
 
-## 三、环境依赖
+## 3 Environment
 
-- 硬件：XPU、GPU、CPU
+- Hardwares: XPU, GPU, CPU
 
-- 框架：
+- Framework: 
   - PaddlePaddle >= 2.0.0
 
-## 四、快速开始
+## 4 Quick Start
 
-本模型的实现存放于 [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection)中，快速开始请参考[快速开始](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/docs/tutorials/QUICK_STARTED_cn.md),模型源文件地址为 [resnet.py](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/ppdet/modeling/backbones/resnet.py#L39)。
+You can refer to [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection) to check the process of realizing this model. Please refer to [Quick Start](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/docs/tutorials/QUICK_STARTED_cn.md) to begin the journey. The address of this model's source document is [resnet.py](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/ppdet/modeling/backbones/resnet.py#L39).
 
-## 五、模型信息
 
-关于模型的其他信息，可以参考下表：
+## 5 Model Information
 
-| 信息 | 说明 |
+Please refer to the following list to check other models’ information:
+
+| Information Name         | Description                                                  |
 | --- | --- |
-| 发布者 | PaddlePaddle |
-| 时间 | 2021.03 |
-| 框架版本 | Paddle 2.0.1 |
-| 应用场景 | 图像分类 | 
-| 支持硬件 | XPU、GPU、CPU |
-| TOP-1 Error |  22.44  |
-| TOP-5 Error |  6.21   |
-| 下载链接 | [预训练模型]() \| [训练日志]() \| [vdl]() |
-| benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
-| 混合精度训练 | [resnet(amp)]() |
-| 模型源代码 | [ResNet](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/ppdet/modeling/backbones/resnet.py#L39) |
-| 在线运行 | [使用ResNet50实现图像分类]() | 
+| Announcer | PaddlePaddle |
+| Time | 2021.03 |
+| Framework Version | Paddle 2.0.1 |
+| Application Scenario     | Image Classification                                         |
+| Supported Hardwares      | XPU, GPU, CPU                                                |
+| TOP-1 Error              | 22.44                                                        |
+| TOP-5 Error              | 6.21                                                         |
+| Download Links           | [Pre-trained Models]() \| [Training Log]() \| [vdl]()        |
+| Benchmark                | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
+| Mixed-precision Training | [resnet(amp)]()                                              |
+| Source Code of ResNet    | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
+| Online Running           | [Use ResNet50 to Realize Image Classification]()             |
 
-## 六、二次开发
+## 6 Customization
 
-如果想要基于此模型进行二次开发，可以参考这篇文档: [如何进行二次开发]() .
+Please refer to [the passage](#) to customize the models.
