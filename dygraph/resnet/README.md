@@ -1,4 +1,5 @@
 # ResNet
+   
    * [ResNet](#resnet)
       * [一、简介](#一简介)
       * [二、数据集](#二数据集)
@@ -97,6 +98,7 @@ the image is buttercup！
 
 ```
 |—— README.md
+|—— README_en.md
 |—— reader.py    # 数据加载
 |── run.sh       # 训练、测试脚本
 |── train.py     # 训练、测试网络
@@ -108,27 +110,27 @@ the image is buttercup！
 
 |  参数   | 默认值  | 说明 | 其他 |
 |  ----  |  ----  |  ----  |  ----  |
-| use_data_parallel  | False, 可选 | 是否使用数据并行训练模型 |
-| epoch  | 120, 可选 | 训练epoch次数 |
-| batch_size  | 32, 可选 | 训练 batch_size 大小 |
-| max_iter | 0, 可选 | 训练最大迭代次数 | 仅在benchmark时使用 |
-| class_dim | 102, 可选 | 花朵数据集的类别数 |
-| use_imagenet_data | False(如果添加该参数即为True), 可选 | 是否使用 IMAGENET数据集 |
-| data_dir | "./data/ILSVRC2012", 可选 | IMAGENET数据集地址 |
-| lower_scale | 0.08, 可选 | ramdom_crop 中 lower_scale 的值 |
-| lower_ratio | 3. / 4., 可选 | ramdom_crop 中 lower_ratio 的值 |
-| upper_ratio | 4. / 3., 可选 | ramdom_crop 中 upper_ratio 的值 |
-| resize_short_size | 256, 可选 | 将图片重新设置大小后较短边的边长 |
-| crop_size | 224, 可选 | crop size 的大小 |
-| use_mixup | False, 可选 | 是否使用mixup |
-| mixup_alpha | 0.2, 可选 | mixup_alpha 大小 |
-| reader_thread | 8, 可选 | 多线程读取数据的数量 |
-| reader_buf_size | 16, 可选 | 多线程读取数据的缓冲大小 |
-| interpolation | None, 可选 | 插值模式 |
-| use_aa | False, 可选 | 是否使用 auto argument |
-| image_mean | [0.485, 0.456, 0.406], 可选 | 图像均值 |
-| image_std | [0.229, 0.224, 0.225], 可选 | 图像方差 |
-| use_gpu | True, 可选 | 是否使用GPU环境 |
+| use_data_parallel  | False, 可选 | 是否使用数据并行训练模型 ||
+| epoch  | 120, 可选 | epoch次数 ||
+| batch_size  | 32, 可选 | batch_size 大小 ||
+| max_iter | 0, 可选 | 最大迭代次数 | 仅在benchmark时使用 |
+| class_dim | 102, 可选 | 花朵数据集的类别数 ||
+| use_imagenet_data | False(如果添加该参数即为True), 可选 | 是否使用 IMAGENET数据集 ||
+| data_dir | "./data/ILSVRC2012", 可选 | IMAGENET数据集地址 ||
+| lower_scale | 0.08, 可选 | ramdom_crop 中 lower_scale 的值 ||
+| lower_ratio | 3. / 4., 可选 | ramdom_crop 中 lower_ratio 的值 ||
+| upper_ratio | 4. / 3., 可选 | ramdom_crop 中 upper_ratio 的值 ||
+| resize_short_size | 256, 可选 | 将图片重新设置大小后较短边的边长 ||
+| crop_size | 224, 可选 | crop_size 的大小 ||
+| use_mixup | False, 可选 | 是否使用mixup ||
+| mixup_alpha | 0.2, 可选 | mixup_alpha 大小 ||
+| reader_thread | 8, 可选 | 多线程读取数据的数量 ||
+| reader_buf_size | 16, 可选 | 多线程读取数据的缓冲大小 ||
+| interpolation | None, 可选 | 插值模式 ||
+| use_aa | False, 可选 | 是否使用 auto argument ||
+| image_mean | [0.485, 0.456, 0.406], 可选 | 图像均值 ||
+| image_std | [0.229, 0.224, 0.225], 可选 | 图像标准差 ||
+| use_gpu | True, 可选 | 是否使用GPU环境 ||
 
 ### 5.3 训练流程
 
@@ -216,7 +218,7 @@ the image is buttercup！
 | 发布者 | PaddlePaddle |
 | 时间 | 2021.03 |
 | 框架版本 | Paddle 2.0.1 |
-| 应用场景 | 图像分类 | 
+| 应用场景 | 图像分类 |
 | 支持硬件 | XPU、GPU、CPU |
 | TOP-1 Error |  22.44  |
 | TOP-5 Error |  6.21   |
@@ -224,7 +226,7 @@ the image is buttercup！
 | benchmark | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
 | 混合精度训练 | [resnet(amp)]() |
 | 模型源代码 | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
-| 在线运行 | [使用ResNet50实现图像分类]() | 
+| 在线运行 | [使用ResNet50实现图像分类]() |
 
 ## 七、二次开发
 
