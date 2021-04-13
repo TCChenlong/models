@@ -1,6 +1,6 @@
 # ResNet152
 
-English | [简体中文](./README_cn.md)
+English | [简体中文](./README_ZH.md)
 
    * [ResNet152](#resnet)
       * [1 Introduction](#1-introduction)
