@@ -1,8 +1,8 @@
-# ResNet
+# ResNet152
 
 English | [简体中文](./README_cn.md)
 
-   * [ResNet](#resnet)
+   * [ResNet152](#resnet)
       * [1 Introduction](#1-introduction)
       * [2 Dataset](#2-dataset)
       * [3 Environment](#3-environment)
@@ -37,7 +37,7 @@ The dataset is: [Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/).
 
 ## 4 Quick Start
 
-You can refer to [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection) to check the process of realizing this model. Please refer to [Quick Start](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/docs/tutorials/QUICK_STARTED_cn.md) to begin the journey. The address of this model's source document is [resnet.py](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.0-rc/ppdet/modeling/backbones/resnet.py#L39).
+You can refer to [PaddleClas](https://github.com/PaddlePaddle/PaddleClas) to check the process of realizing this model. Please refer to [Quick Start](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.0/docs/en/tutorials/quick_start_en.md) to begin the journey. The address of this model's source document is [resnet.py](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.0/ppcls/modeling/architectures/resnet.py#L310).
 
 
 ## 5 Model Information
@@ -56,8 +56,8 @@ Please refer to the following list to check other models’ information:
 | Download Links           | [Pre-trained Models]() \| [Training Log]() \| [vdl]()        |
 | Benchmark                | [benchmark](https://github.com/PaddlePaddle/benchmark/tree/master/dynamic_graph/resnet/paddle) |
 | Mixed-precision Training | [resnet(amp)]()                                              |
-| Source Code of ResNet    | [ResNet](https://github.com/TCChenlong/models/blob/update_readme/dygraph/resnet/train.py#L270) |
-| Online Running           | [Use ResNet50 to Realize Image Classification]()             |
+| Source Code of ResNet    | [ResNet152](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.0/ppcls/modeling/architectures/resnet.py#L310) |
+| Online Running           | [Use ResNet152 to Realize Image Classification]()             |
 
 ## 6 Customization
 
