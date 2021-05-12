@@ -1,0 +1,16 @@
+## Model Tutorial
+
+* [Pixel2Pixel](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/pix2pix_cyclegan.md)
+* [CycleGAN](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/pix2pix_cyclegan.md)
+* [LapStyle(coming soon)](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/lap_style.md)
+* [PSGAN](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/psgan.md)
+* [First Order Motion Model](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/motion_driving.md)
+* [FaceParsing](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/face_parse.md)
+* [AnimeGANv2](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/animegan.md)
+* [U-GAT-IT](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/ugatit.md)
+* [Photo2Cartoon](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/photo2cartoon.md)
+* [Wav2Lip](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/wav2lip.md)
+* [Single Image Super Resolution(SISR)](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/single_image_super_resolution.md)
+* [Video Super Resolution(VSR)](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/video_super_resolution.md)
+* [StyleGAN2](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/styleganv2.md)
+* [Pixel2Style2Pixel](https://github.com/PaddlePaddle/PaddleGAN/tree/develop/docs/en_US/tutorials/pixel2style2pixel.md)
