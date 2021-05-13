@@ -2,15 +2,11 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/PaddlePaddle/models) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddlePaddle models is a repository composed of many state-of-the-art models which is implemented in the PaddlePaddle development kit.
-
-The TensorFlow Model Garden is a repository with a number of different implementations of state-of-the-art (SOTA) models and modeling solutions for TensorFlow users. We aim to demonstrate the best practices for modeling so that TensorFlow users can take full advantage of TensorFlow for their research and product development.
-
-PaddlePaddle 提供了丰富的计算单元，使得用户可以采用模块化的方法解决各种学习问题。在此Repo中，我们展示了如何用 PaddlePaddle来解决常见的机器学习任务，提供若干种不同的易学易用的神经网络模型。PaddlePaddle用户可领取**免费Tesla V100在线算力资源**，高效训练模型，**每日登陆即送12小时**，**连续五天运行再加送48小时**，[前往使用免费算力](http://ai.baidu.com/support/news?action=detail&id=981)。
+PaddlePaddle models is a repository composed of 270+ state-of-the-art models which is implemented in the PaddlePaddle development kit.We adjusted the structure of models and enriched the documentation for each scene, so you can find the model you want faster.
 
 ## PaddleCV
 
-### 图像分类
+### Image Classification
 
 [图像分类](https://github.com/PaddlePaddle/PaddleClas) 是根据图像的语义信息对不同类别图像进行区分，是计算机视觉中重要的基础问题，是物体检测、图像分割、物体跟踪、行为分析、人脸识别等其他高层视觉任务的基础，在许多领域都有着广泛的应用。如：安防领域的人脸识别和智能视频分析等，交通领域的交通场景识别，互联网领域基于内容的图像检索和相册自动归类，医学领域的图像识别等。
 
