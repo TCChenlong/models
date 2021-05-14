@@ -2,11 +2,11 @@
 
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/PaddlePaddle/models) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
-PaddlePaddle models is a repository composed of 270+ state-of-the-art models which is implemented in the PaddlePaddle development kit.We adjusted the structure of models and enriched the documentation for each scene, so you can find the model you want faster.
+models 由270+个 start-of-the-art 模型组成。这些模型分场景实现在飞桨的各个开发套件中。你可以根据场景和对应的场景下模型的介绍，来快速选择合适的模型。
 
 ## PaddleCV
 
-### Image Classification
+### 图像分类
 
 [图像分类](https://github.com/PaddlePaddle/PaddleClas) 是根据图像的语义信息对不同类别图像进行区分，是计算机视觉中重要的基础问题，是物体检测、图像分割、物体跟踪、行为分析、人脸识别等其他高层视觉任务的基础，在许多领域都有着广泛的应用。如：安防领域的人脸识别和智能视频分析等，交通领域的交通场景识别，互联网领域基于内容的图像检索和相册自动归类，医学领域的图像识别等。
 
